@@ -1,7 +1,7 @@
 import React from 'react';
-import { addNavigationHelpers, StackNavigator } from 'react-navigation';
-import { createStore, combineReducers } from 'redux';
+import { addNavigationHelpers, createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
+import Login from "../.././view/auth/Login";
 
  export const AppNavigator = createAppContainer(createSwitchNavigator({
     Login: {screen: Login}
@@ -9,8 +9,12 @@ import { connect } from 'react-redux';
 
 const AppWithNavigationState = ({ dispatch, nav }) => (
     <AppNavigator
-      navigation={addNavigationHelpers({ dispatch, state: nav })}
-    /> );
+    // navigation={{
+    //     dispatch: dispatch,
+    //     state:nav,
+    //     // addListener,
+    //  }}  
+       /> );
   
   const mapStateToProps = state => ({
     nav: state.nav,
